@@ -1,0 +1,118 @@
+<div ng-controller="InformePernosCtrl">
+
+    <div class="row responsive-sm">
+
+        <div class="col col-50">
+            <label class="item item-input item-select">
+                <span class="input-label">Pique</span>
+
+                <select  ng-change="pernos.tipo_pique = pernos.pique.tipo_pique"  ng-model="pernos.pique" ng-options="item.pique for item in piques">
+                    <option value=''>Selecciona un Pique</option>
+                </select>
+
+            </label>
+        </div>
+
+        <div class="col col-50">
+            <label class="item item-input">
+                <span class="input-label">Tipo Pique</span>
+                <input type="text" ng-model="pernos.tipo_pique"/>
+        </div>
+
+    </div>
+
+
+
+    <div class="row responsive-sm">
+
+        <div class="col col-50">
+            <label class="item item-input item-select">
+                <span class="input-label">Zona</span>
+                <select  ng-model="pernos.zona" >
+                    <option value="Galería de acceso">Galería de acceso</option>
+                    <option value="Galería segundaria">Galería segundaria</option>
+                    <option value="Galería terciaria">Galería terciaria</option>
+                    <option value="Galería Ventilación">Galería Ventilación</option>
+                    <option value="Túnel Interestación Oriente">Túnel Interestación Oriente</option>
+                    <option value="Túnel Interestación Poniente">Túnel Interestación Poniente</option>
+                    <option value="Túnel Estación Oriente">Túnel Estación Oriente</option>
+                    <option value="Túnel Estación Poniente">Túnel Estación Poniente"</option>
+                </select>
+
+            </label>
+        </div>
+
+        <div class="col col-50">
+            <label class="item item-input item-select">
+                <span class="input-label">Tipo de Perno</span>
+                <select  ng-model="pernos.tipo_perno" >
+                    <option value="Autoperforantes">Autoperforantes</option>
+                    <option value="Paraguas">Paraguas</option>
+                    <option value="Marchiavantis">Marchiavantis</option>
+                    <option value="Fibra de  vidrio">Fibra de  vidrio</option>
+                </select>
+        </div>
+
+    </div>
+
+
+
+    <div class="row responsive-sm">
+        <div class="col">
+
+            <div class="list">
+              <label class="item item-input item-stacked-label item-select">
+                <span class="input-label">Selecciona Actividad {{actividad}}</span>
+                    <select ng-change="agregarActividades()"  ng-model="actividad">
+                        <option value="{{act.id}}" ng-repeat="act in actividades">{{act.name}}</option>
+                    </select>
+              </label>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="row responsive-sm">
+        <div class="col col-table">N°</div>
+        <div class="col col-table">Actividad</div>
+        <div class="col col-table">N° Perno</div>
+        <div class="col col-table">Zona</div>
+        <div class="col col-table">Tipo de perno</div>
+        <div class="col col-table">Hora final</div>
+        <div class="col col-table"></div>
+    </div>
+
+
+  <div class="row responsive-sm" ng-repeat="act in  actividadesPerno">
+      <div class="col col-table">
+          {{$index+1}}
+      </div>
+
+      <div class="col col-table">
+            {{ act.actividad.name }}
+      </div>
+
+      <div class="col col-table">
+          <input type="text" ng-model="act.numero_perno">
+      </div>
+
+      <div class="col col-table">
+          <input type="text" ng-model="act.zona">
+      </div>
+
+      <div class="col col-table">
+          <input type="text" ng-model="act.tipo_perno">
+      </div>
+
+      <div class="col col-table">
+          <input type="text" ng-model="act.hora_final">
+      </div>
+
+      <div class="col col-table">
+          <button class="button button-assertive"  ng-click="eliminarActividad($index)">
+                  Eliminar
+          </button>
+      </div>
+  </div>
+</div>

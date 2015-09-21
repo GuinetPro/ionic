@@ -1,0 +1,64 @@
+<div ng-controller="InformeMarinaCtrl">
+
+  <div class="row responsive-sm">
+      <div class="col col-25">
+        <button class="button button-dark" ng-click="agregarMarina()">Añadir Marina </button>
+      </div>
+  </div>
+
+  <div ng-repeat="marina in marinas">
+
+      <div class="row responsive-sm">
+
+          <div class="col">
+              <label class="item item-input">
+                  <span class="input-label">Modelo</span>
+                  <input type="text" ng-model="marina.modelo" class="ng-pristine ng-valid ng-touched" style="">
+              </label>
+          </div>
+
+          <div class="col">
+              <label class="item item-input">
+                  <span class="input-label">Numero de Vuelta</span>
+                  <input type="text" ng-model="marina.numero" class="ng-pristine ng-valid ng-touched" style="">
+              </label>
+          </div>
+
+          <div class="col">
+              <label class="item item-input">
+                  <span class="input-label">Tonelaje</span>
+                  <input type="text" ng-model="marina.tonelaje" class="ng-pristine ng-valid ng-touched" style="">
+              </label>
+          </div>
+
+
+            <div class="col">
+              <label class="item item-input">
+                  <span class="input-label">Destino</span>
+                  <input type="text" ng-model="marina.destino" class="ng-pristine ng-valid ng-touched" style="">
+              </label>
+          </div>
+
+            <div class="col">
+              <label class="item item-input">
+                  <span class="input-label">Total</span>
+                  <input type="text" ng-model="marina.total" class="ng-pristine ng-valid ng-touched" style="">
+              </label>
+          </div>
+
+      </div>
+
+
+
+      <div class="row responsive-sm">
+         <div class="col" ng-if="$index > 0 ">
+              <button class="button button-assertive" ng-click="eliminarMarina($index)">Eliminar Marina </button>
+          </div>
+
+      </div>
+
+  </div>
+
+
+</div>
+

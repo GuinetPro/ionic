@@ -1,0 +1,122 @@
+<div ng-controller="InformeGaleriaVentilacionCtrl">
+
+    <div class="row responsive-sm">
+
+        <div class="col col-50">
+            <label class="item item-input item-select">
+                <span class="input-label">Pique</span>
+
+                <select  ng-change="galeria.tipo_pique = galeria.pique.tipo_pique"  ng-model="galeria.pique" ng-options="item.pique for item in piques">
+                    <option value=''>Selecciona un Pique</option>
+                </select>
+
+            </label>
+        </div>
+
+        <div class="col col-50">
+            <label class="item item-input">
+                <span class="input-label">Tipo Pique</span>
+                <input type="text" ng-model="galeria.tipo_pique"/>
+        </div>
+
+    </div>
+
+
+
+    <div class="row responsive-sm">
+
+        <div class="col col-50">
+            <label class="item item-input item-select">
+                <span class="input-label">Ventilacion</span>
+                <select  ng-model="galeria.ventilacion" >
+                    <option value="0">0</option>
+                    <option value="{{i}}" ng-repeat="i in [24,36] | toRange">{{i}}</option>
+
+                </select>
+
+            </label>
+        </div>
+
+        <div class="col col-50">
+
+            <label class="item item-input item-select">
+                <span class="input-label">Secuencia</span>
+                <select  ng-model="galeria.secuencia" >
+                    <option value=""></option>
+                    <option value="Bóveda">Bóveda</option>
+                    <option value="Banco">Banco</option>
+                    <option value="Contrabóveda">Contrabóveda</option>
+                </select>
+
+            </label>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="row responsive-sm">
+        <div class="col">
+
+            <div class="list">
+              <label class="item item-input item-stacked-label item-select">
+                <span class="input-label">Selecciona Actividad {{actividad}}</span>
+                    <select ng-change="agregarActividades()"  ng-model="actividad">
+                        <option value="{{act.id}}" ng-repeat="act in actividades">{{act.name}}</option>
+                    </select>
+              </label>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="row responsive-sm">
+        <div class="col col-table">N°</div>
+        <div class="col col-table">Actividad</div>
+        <div class="col col-table">Marco Inicial </div>
+        <div class="col col-table">Marco Final  </div>
+        <div class="col col-table">Hora Final </div>
+        <div class="col col-table">Distancia entre marco </div>
+        <div class="col col-table">Secuencia</div>
+        <div class="col col-table"></div>
+    </div>
+
+
+  <div class="row responsive-sm" ng-repeat="act in  actividadesGaleria">
+      <div class="col col-table">
+          {{$index+1}}
+      </div>
+
+      <div class="col col-table">
+            {{ act.actividad.name }}
+      </div>
+
+      <div class="col col-table">
+          <input type="text" ng-model="act.marco_inicial">
+      </div>
+
+      <div class="col col-table">
+          <input type="text" ng-model="act.marco_final">
+      </div>
+
+      <div class="col col-table">
+          <input type="text" ng-model="act.hora_final">
+      </div>
+
+      <div class="col col-table">
+          <input type="text" ng-model="act.distancia">
+      </div>
+
+      <div class="col col-table">
+          {{ act.secuencia }}
+      </div>
+
+      <div class="col col-table">
+          <button class="button button-assertive"  ng-click="eliminarActividad($index)">
+                  Eliminar
+          </button>
+      </div>
+  </div>
+</div>

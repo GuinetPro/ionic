@@ -1,0 +1,95 @@
+<div ng-controller="InformeImageCtrl">
+
+    <div class="row">
+
+    <button class="button button-icon icon ion-camera" ng-click="upload()"></button>
+    </div>
+
+
+    <div class="row" ng-repeat="image in images" ng-if="$index % 4 === 0">
+
+        <div class="col col-25" ng-if="$index < images.length">
+
+            <div class="list card">
+
+              <div class="item item-body">
+                <img ng-src="{{images[$index].src}}" width="100%" />
+                <p>
+                  <textarea ng-model="images[$index].observacion">{{images[$index].observacion}}</textarea>
+                </p>
+                <p>
+                  <select>
+                      <option ng-repeat="zona in zonas" value="{{zona}}">{{zona}}</option>
+                  </select>
+                </p>
+              </div>
+
+            </div>
+
+        </div>
+
+        <div class="col col-25" ng-if="$index + 1 < images.length">
+
+            <div class="list card">
+
+              <div class="item item-body">
+                <img ng-src="{{images[$index+ 1].src}}" width="100%" />
+                <p>
+                  <textarea ng-model="images[$index+ 1].observacion">{{images[$index+ 1].observacion}}</textarea>
+                </p>
+                <p>
+                  <select>
+                      <option ng-repeat="zona in zonas" value="{{zona}}">{{zona}}</option>
+                  </select>
+                </p>
+              </div>
+
+            </div>
+
+
+        </div>
+        <div class="col col-25" ng-if="$index + 2 < images.length">
+
+            <div class="list card">
+
+              <div class="item item-body">
+                <img ng-src="{{images[$index+ 2].src}}" width="100%" />
+                <p>
+                  <textarea ng-model="images[$index+ 2].observacion">{{images[$index+ 2].observacion}}</textarea>
+                </p>
+                <p>
+                  <select ng-model="images[$index+ 2].zona">
+                      <option ng-repeat="zona in zonas" value="{{images[$index+ 2].zona}}">{{images[$index+ 2].zona}}</option>
+                  </select>
+                </p>
+              </div>
+
+            </div>
+        </div>
+        <div class="col col-25" ng-if="$index + 3 < images.length">
+
+
+            <div class="list card">
+
+              <div class="item item-body">
+                <img ng-src="{{images[$index+ 2].src}}" width="100%" />
+                <p>
+                  <textarea ng-model="images[$index+ 2].observacion">{{images[$index+ 2].observacion}}</textarea>
+                </p>
+                <p>
+                  <select ng-model="images[$index+ 2].zona">
+                      <option ng-repeat="zona in zonas" value="{{images[$index+ 2].zona}}">{{images[$index+ 2].zona}}</option>
+                  </select>
+                </p>
+              </div>
+
+            </div>
+
+
+            <img ng-src="{{images[$index + 3].src}}" width="100%" />
+        </div>
+    </div>
+
+</div>
+
+

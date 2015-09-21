@@ -1,0 +1,157 @@
+  <div ng-controller="InformeNichosCtrl">
+
+     <div class="row">
+
+        <div class="col col-50">
+            <label class="item item-input item-select">
+                <span class="input-label">Pique</span>
+
+                <select   ng-model="bombeo.pique" ng-options="item.pique for item in piques">
+                    <option value=''>Selecciona un Pique</option>
+                </select>
+
+            </label>
+        </div>
+
+
+    </div>
+
+
+    <div class="row">
+        <div class="col col-75">
+            <button class="button button-dark" ng-click="agregarSecuencia()">Añadir Side Drift - Secuencia </button>
+        </div>
+    </div>
+
+
+    <div class="row" ng-repeat="sec in secuenciaGaleria">
+
+            <div class="col">
+                {{$index+1}}
+            </div>
+
+
+            <div class="col">
+
+                <label class="item item-input item-select">
+                    <span class="input-label">Secuencia</span>
+                    <select ng-model="sec.secuencia">
+                        <option></option>
+                        <option value="Herradura">Herradura</option>
+                        <option value="Etapa">Etapa</option>
+                    </select>
+                </label>
+
+            </div>
+
+            <div class="col">
+
+
+                <label class="item item-input item-select">
+                    <span class="input-label">Elemento</span>
+                    <select ng-model="sec.elemento" ng-change="fillActividades(sec)">
+                        <option></option>
+                        <option value="Galeria">Galería</option>
+                        <option value="Timpano">Tímpano</option>
+                        <option value="Radier">Radier</option>
+                        <option value="Pique">Pique</option>
+                    </select>
+                </label>
+
+
+            </div>
+
+
+
+            <div class="col">
+
+                <label class="item item-radio">
+                    <input type="radio" name="group"  ng-value="{{$index}}" ng-click="relacionar($index)">
+                    <div class="item-content">
+                      Relacion
+                    </div>
+                    <i class="radio-icon ion-checkmark"></i>
+                </label>
+
+            </div>
+
+    </div>
+
+
+    <div class="row">
+        <div class="col">
+
+            <div class="list">
+              <label class="item item-input item-stacked-label item-select">
+                <span class="input-label">Selecciona Actividad {{galeria_acceso.relacion}}</span>
+                    <select ng-change="agregarActividades()"  ng-model="actividad">
+                        <option value="{{act.id}}" ng-repeat="act in actividades">{{act.name}}</option>
+                    </select>
+              </label>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+  <div class="row header">
+        <div class="col col-table">N°</div>
+        <div class="col col-table">Actividad</div>
+        <div class="col col-table">Marco Inicial</div>
+        <div class="col col-table">Hora Inicial</div>
+        <div class="col col-table">Marco Final</div>
+        <div class="col col-table">Hora final</div>
+        <div class="col col-table">Distancia entre marco</div>
+        <div class="col col-table">Secuencia</div>
+        <div class="col col-table"></div>
+  </div>
+
+
+
+
+  <div class="row" ng-repeat="act in  actividadesGaleria">
+      <div class="col col-table">
+          {{$index+1}}
+      </div>
+
+      <div class="col col-table">
+            {{ act.actividad.name }}
+      </div>
+
+      <div class="col col-table">
+          <input type="text" ng-model="act.marco_inicial">
+      </div>
+
+      <div class="col col-table">
+          <input type="text" ng-model="act.hora_inicial">
+      </div>
+
+      <div class="col col-table">
+          <input type="text" ng-model="act.marco_final">
+      </div>
+
+      <div class="col col-table">
+          <input type="text" ng-model="act.hora_final">
+      </div>
+
+      <div class="col col-table">
+          <input type="text" ng-model="act.distancia">
+      </div>
+
+      <div class="col col-table">
+        {{act.secuencia}}
+      </div>
+
+      <div class="col col-table">
+          <button class="button button-assertive"  ng-click="eliminarActividad($index)">
+                  Eliminar
+          </button>
+      </div>
+  </div>
+
+
+  </div>

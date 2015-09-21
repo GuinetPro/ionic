@@ -1,0 +1,114 @@
+<div ng-controller="InformeHormigonCtrl">
+
+  <div class="row responsive-sm">
+      <div class="col col-25">
+        <button class="button button-dark" ng-click="agregarHormigon()">Añadir Hormigon </button>
+      </div>
+  </div>
+
+  <div ng-repeat="hormigon in hormigones">
+
+      <div class="row responsive-sm">
+
+          <div class="col">
+              <label class="item item-input">
+                  <span class="input-label">Cono</span>
+                  <input type="text" ng-model="hormigon.cono" class="ng-pristine ng-valid ng-touched" style="">
+              </label>
+          </div>
+
+          <div class="col">
+              <label class="item item-input">
+                  <span class="input-label">N° Mixer</span>
+                  <input type="text" ng-model="hormigon.mixer" class="ng-pristine ng-valid ng-touched" style="">
+              </label>
+          </div>
+
+          <div class="col">
+              <label class="item item-input">
+                  <span class="input-label">Proveedor</span>
+                  <input type="text" ng-model="hormigon.proveedor" class="ng-pristine ng-valid ng-touched" style="">
+              </label>
+          </div>
+
+
+            <div class="col">
+              <label class="item item-input">
+                  <span class="input-label">Hr. Salida</span>
+                  <input type="text" ng-model="hormigon.hora_salida" class="ng-pristine ng-valid ng-touched" style="">
+              </label>
+          </div>
+
+            <div class="col">
+              <label class="item item-input">
+                  <span class="input-label">Hr. Llegada</span>
+                  <input type="text" ng-model="hormigon.llegada" class="ng-pristine ng-valid ng-touched" style="">
+              </label>
+          </div>
+
+      </div>
+
+      <div class="row responsive-sm">
+
+          <div class="col">
+              <label class="item item-input">
+                  <span class="input-label">Inicio</span>
+                  <input type="text" ng-model="hormigon.inicio" class="ng-pristine ng-valid ng-touched" style="">
+              </label>
+          </div>
+
+
+          <div class="col">
+              <label class="item item-input">
+                  <span class="input-label">Termino</span>
+                  <input type="text" ng-model="hormigon.termino" class="ng-pristine ng-valid ng-touched" style="">
+              </label>
+          </div>
+
+
+          <div class="col">
+              <label class="item item-input">
+                  <span class="input-label">N° Guia</span>
+                  <input type="text" ng-model="hormigon.guia" class="ng-pristine ng-valid ng-touched" style="">
+              </label>
+          </div>
+
+
+          <div class="col">
+              <label class="item item-input">
+                  <span class="input-label">T° (C°)</span>
+                  <input type="text" ng-model="hormigon.temperatura" class="ng-pristine ng-valid ng-touched" style="">
+              </label>
+          </div>
+
+
+          <div class="col">
+              <label class="item item-input">
+                  <span class="input-label">Vol. transportado M3</span>
+                  <input type="text" ng-model="hormigon.transportado" class="ng-pristine ng-valid ng-touched" style="">
+              </label>
+          </div>
+
+
+      </div>
+
+
+      <div class="row responsive-sm">
+         <div class="col">
+              <label class="item item-input">
+                  <span class="input-label">Vol. volcado M3</span>
+                  <input type="text" ng-model="hormigon.volcado" class="ng-pristine ng-valid ng-touched" style="">
+              </label>
+          </div>
+
+         <div class="col" ng-if="$index > 0 ">
+
+              <button class="button button-assertive" ng-click="eliminarActividad($index)">Eliminar Hormigon </button>
+          </div>
+
+      </div>
+
+  </div>
+
+
+</div>

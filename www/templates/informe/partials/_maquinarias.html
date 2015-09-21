@@ -1,0 +1,115 @@
+<div ng-controller="informeMaquinariaCtrl">
+
+  <div class="row responsive-lg">
+        <div class="col"></div>
+        <div class="col">Incio</div>
+        <div class="col">Termino</div>
+        <div class="col">Inicio</div>
+        <div class="col">Termino</div>
+        <div class="col">Inicio</div>
+        <div class="col">Termino</div>
+        <div class="col">Operativo</div>
+        <div class="col">Panne</div>
+        <div class="col">Stand by</div>
+        <div class="col">Observaciones</div>
+  </div>
+
+
+  <div class="row responsive-lg" ng-repeat="maq in maquinarias">
+      <div class="col">{{maq.nombre}}</div>
+
+      <div class="col">
+
+        <ionic-timepicker input-obj="timePickerObject24Hour">
+              <button class="button button-block button-positive overflowShow" ng-click="fieldCurrent($index,'op_inicio')">
+                <standard-time-meridian etime='timePickerObject24Hour.inputEpochTime'><span ng-model="maq.op_inicio">{{maq.op_inicio}}</span></standard-time-meridian>
+              </button>
+        </ionic-timepicker>
+
+      </div>
+
+      <div class="col">
+        <ionic-timepicker input-obj="timePickerObject24Hour">
+              <button class="button button-block button-positive overflowShow" ng-click="fieldCurrent($index,'op_termino')">
+                <standard-time-meridian etime='timePickerObject24Hour.inputEpochTime'><span ng-model="maq.op_termino">{{maq.op_termino}}</span></standard-time-meridian>
+              </button>
+        </ionic-timepicker>
+
+      </div>
+
+      <div class="col">
+
+        <ionic-timepicker input-obj="timePickerObject24Hour">
+              <button class="button button-block button-positive overflowShow" ng-click="fieldCurrent($index,'panne_inicio')">
+                <standard-time-meridian etime='timePickerObject24Hour.inputEpochTime'><span ng-model="maq.panne_inicio">{{maq.panne_inicio}}</span></standard-time-meridian>
+              </button>
+        </ionic-timepicker>
+
+
+      </div>
+
+      <div class="col">
+
+        <ionic-timepicker input-obj="timePickerObject24Hour">
+              <button class="button button-block button-positive overflowShow" ng-click="fieldCurrent($index,'panne_termino')">
+                <standard-time-meridian etime='timePickerObject24Hour.inputEpochTime'><span ng-model="maq.panne_termino">{{maq.panne_termino}}</span></standard-time-meridian>
+              </button>
+        </ionic-timepicker>
+
+
+      </div>
+
+      <div class="col">
+
+
+        <ionic-timepicker input-obj="timePickerObject24Hour">
+              <button class="button button-block button-positive overflowShow" ng-click="fieldCurrent($index,'stand_inicio')">
+                <standard-time-meridian etime='timePickerObject24Hour.inputEpochTime'><span ng-model="maq.stand_inicio">{{maq.stand_inicio}}</span></standard-time-meridian>
+              </button>
+        </ionic-timepicker>
+
+
+      </div>
+
+      <div class="col">
+
+
+        <ionic-timepicker input-obj="timePickerObject24Hour">
+              <button class="button button-block button-positive overflowShow" ng-click="fieldCurrent($index,'stand_termino')">
+                <standard-time-meridian etime='timePickerObject24Hour.inputEpochTime'><span ng-model="maq.stand_termino">{{maq.stand_termino}}</span></standard-time-meridian>
+              </button>
+        </ionic-timepicker>
+
+
+      </div>
+
+      <div class="col">
+
+        <label class="item item-input">
+          <input type="text" value=" {{maq.total_op}}" readonly="readonly">
+        </label>
+
+      </div>
+
+      <div class="col">
+
+        <label class="item item-input">
+          <input type="text" value=" {{maq.total_panne}}" readonly="readonly">
+        </label>
+
+      </div>
+      <div class="col">
+
+        <label class="item item-input">
+          <input type="text" value=" {{maq.total_stand}}" readonly="readonly">
+        </label>
+
+      </div>
+      <div class="col">
+        <textarea  rows="5" cols="20" ng-model="maq.observaccion"></textarea>
+      </div>
+  </div>
+
+
+
+</div>

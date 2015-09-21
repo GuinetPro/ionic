@@ -1,0 +1,30 @@
+<ion-view view-title="Sincronizar Usuario">
+  <ion-content>
+
+    <form ng-submit="ingresar()">
+      <div class="list">
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Usuario Rider</span>
+          <input type="text" ng-model="loginData.user"/>
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Password</span>
+          <input type="password" ng-model="loginData.pass"/>
+        </label>
+      </div>
+
+      <div class="padding">
+        <button class="button button-block button-positive" type="submit" ng-disabled="!loginData.pass||!loginData.user">Ingresar</button>
+
+      </div>
+    </form>
+
+    <div class="row row-center">
+      <div class="col text-center">
+        <ion-spinner class="spinner-android" ng-show="spinner"></ion-spinner>
+      </div>
+    </div>
+
+
+  </ion-content>
+</ion-view>

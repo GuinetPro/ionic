@@ -1,0 +1,107 @@
+<div ng-controller="informeBitacoraCtrl">
+
+    <div class="row">
+
+        <div class="col col-50">
+            <label class="item item-input item-select">
+                <span class="input-label">Turno</span>
+                <select ng-model="bitacora.turno">
+                    <option value=""></option>
+                    <option value="1">Dia</option>
+                    <option value="2">Noche</option>
+                </select>
+            </label>
+        </div>
+
+        <div class="col col-50">
+            <label class="item item-input">
+                <span class="input-label">Contratista</span>
+                <input type="text" ng-model="bitacora.contratista">
+            </label>
+        </div>
+    </div>
+
+
+     <div class="row">
+        <div class="col col-50">
+            <label class="item item-input item-select">
+                <span class="input-label">Pique</span>
+                <select  ng-change="bitacroa.tipo_pique = galeria_acceso.pique.tipo_pique"  ng-model="bitacroa.pique" ng-options="item.pique for item in piques">
+                    <option value=''>Selecciona un Pique</option>
+                </select>
+              </label>
+        </div>
+
+        <div class="col col-50">
+            <label class="item item-input">
+                <span class="input-label">ITO</span>
+                <input type="text" ng-model="bitacora.ito">
+            </label>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col col-50">
+            <label class="item item-input">
+                <span class="input-label">Fecha</span>
+                <input type="date" ng-model="bitacora.fecha">
+            </label>
+        </div>
+
+        <div class="col col-50"></div>
+
+    </div>
+
+
+    <div class="row">
+        <div class="col col-75">
+            <button class='button button-dark' ng-click="agregarZona();">Añadir Zona Actividad</button>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col col-25">
+            <div class="item item-divider"> Zona actividad  </div>
+        </div>
+
+        <div class="col col-50">
+            <div class="item item-divider">Observaciones Por Turno</div>
+        </div>
+
+        <div class="col col-25">
+            <div class="item item-divider">  </div>
+        </div>
+
+    </div>
+
+
+    <div class="row" ng-repeat="zonas in BitacoraZona">
+
+        <div class="col col-25">
+            <label class="item item-input">
+            <input type="text" ng-model="zonas.zona"></label>
+        </div>
+
+        <div class="col col-50">
+            <label class="item item-input item-stacked-label">
+                <textarea  rows="8" cols="10" ng-model="zonas.observacion"></textarea>
+            </label>
+        </div>
+
+
+      <div class="col col-25">
+          <button class="button button-assertive"  ng-click="eliminarZona($index)">
+                  Eliminar
+          </button>
+      </div>
+
+
+    </div>
+
+
+
+</div>
+
+

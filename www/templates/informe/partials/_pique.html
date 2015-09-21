@@ -1,0 +1,106 @@
+<div ng-controller="InformePiqueCtrl">
+
+    <div class="row responsive-sm">
+
+        <div class="col col-50">
+            <label class="item item-input item-select">
+                <span class="input-label">Pique</span>
+
+                <select  ng-change="pique.tipo_pique = pique.pique.tipo_pique"  ng-model="pique.pique" ng-options="item.pique for item in piques">
+                    <option value=''>Selecciona un Pique</option>
+                </select>
+
+            </label>
+        </div>
+
+        <div class="col col-50">
+            <label class="item item-input">
+                <span class="input-label">Tipo Pique</span>
+                <input type="text" ng-model="pique.tipo_pique"/>
+        </div>
+
+    </div>
+
+
+
+    <div class="row responsive-sm">
+
+        <div class="col col-50">
+            <label class="item item-input item-select">
+                <span class="input-label">Tipo de forma</span>
+                <select  ng-model="pique.tipo_forma" >
+                    <option value=""></option>
+                    <option value="Catedral">Catedral</option>
+                    <option value="Circular">Circular</option>
+                </select>
+
+            </label>
+        </div>
+
+        <div class="col col-50">
+
+        </div>
+
+    </div>
+
+
+
+    <div class="row responsive-sm">
+        <div class="col">
+
+            <div class="list">
+              <label class="item item-input item-stacked-label item-select">
+                <span class="input-label">Selecciona Actividad {{actividad}}</span>
+                    <select ng-change="agregarActividades()"  ng-model="actividad">
+                        <option value="{{act.id}}" ng-repeat="act in actividades">{{act.name}}</option>
+                    </select>
+              </label>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="row responsive-sm">
+        <div class="col col-table">N°</div>
+        <div class="col col-table">Actividad</div>
+        <div class="col col-table">Etapa o nivel</div>
+        <div class="col col-table">Profundidad</div>
+        <div class="col col-table">Hora Inicial</div>
+        <div class="col col-table">Hora Final</div>
+        <div class="col col-table"></div>
+    </div>
+
+
+  <div class="row responsive-sm" ng-repeat="act in  actividadesPique">
+      <div class="col col-table">
+          {{$index+1}}
+      </div>
+
+      <div class="col col-table">
+            {{ act.actividad.name }}
+      </div>
+
+      <div class="col col-table">
+          <input type="text" ng-model="act.etapa">
+      </div>
+
+      <div class="col col-table">
+          <input type="text" ng-model="act.profundidad">
+      </div>
+
+      <div class="col col-table">
+          <input type="text" ng-model="act.hora_inicial">
+      </div>
+
+      <div class="col col-table">
+          <input type="text" ng-model="act.hora_final">
+      </div>
+
+      <div class="col col-table">
+          <button class="button button-assertive"  ng-click="eliminarActividad($index)">
+                  Eliminar
+          </button>
+      </div>
+  </div>
+</div>

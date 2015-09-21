@@ -1,0 +1,50 @@
+<ion-view view-title="Lista de Informes">
+
+  <ion-content>
+      <!--Formulario de busqueda -->
+      <div class="list list-inset has-header ">
+        <label class="item item-input">
+          <i class="icon ion-search placeholder-icon"></i>
+          <input type="text" placeholder="Search">
+        </label>
+      </div>
+
+      <!--Lista de Informes -->
+      <div class="list  has-header">
+
+        <div class="item item-button-right" ng-repeat="info in informes">
+          {{info.codigo}} ( {{info.created_at}} )
+          <a class="button button-positive icon ion-chevron-rigth" href="#/app/informe/edit/{{info.informe_id}}">Editar</a>
+        </div>
+
+      </div>
+
+  </ion-content>
+
+  <!--Tab superior -->
+  <div class="tabs-top tabs-background-positive tabs-color-light">
+    <div class="tabs">
+
+      <a class="tab-item button-dark" href="#/app/informes/add">
+        <button class="button button-calm">
+          Crear Informe
+        </button>
+      </a>
+      <a class="tab-item" href="#">
+        <button class="button button-energized">
+          Sincronizar
+        </button>
+
+      </a>
+      <a class="tab-item" href="#">
+        <button class="button button-stable">
+          Bitacora
+        </button>
+
+      </a>
+    </div>
+
+  </div>
+
+
+</ion-view>

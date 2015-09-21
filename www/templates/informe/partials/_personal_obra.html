@@ -1,0 +1,440 @@
+<div ng-controller="informePersonalObraCtrl">
+
+
+  <div class="row responsive-sm">
+        <div class="col col-table">M.O Indirecta</div>
+        <div class="col col-table">Pique</div>
+  </div>
+
+
+  <div class="row responsive-sm">
+        <div class="col col-table">Personal OHL</div>
+        <div class="col col-table">Cantidad</div>
+  </div>
+
+
+  <div class="row responsive-sm">
+      <div class="col col-table">
+          Supervisor
+      </div>
+
+      <div class="col col-table">
+           <input type="number" ng-model="indirecta.supervisor">
+      </div>
+  </div>
+
+
+
+
+  <div class="row responsive-sm">
+      <div class="col col-table">
+          Bodeguero
+      </div>
+
+      <div class="col col-table">
+           <input type="number" ng-model="indirecta.bodeguero">
+      </div>
+  </div>
+
+
+
+  <div class="row responsive-sm">
+      <div class="col col-table">
+          Mecánico
+      </div>
+
+      <div class="col col-table">
+           <input type="number" ng-model="indirecta.mecanico">
+      </div>
+  </div>
+
+
+  <div class="row responsive-sm">
+      <div class="col col-table">
+          Soldador
+      </div>
+
+      <div class="col col-table">
+           <input type="number" ng-model="indirecta.soldador">
+      </div>
+  </div>
+
+
+  <div class="row responsive-sm">
+      <div class="col col-table">
+          Eléctrico
+      </div>
+
+      <div class="col col-table" >
+           <input type="number" ng-model="indirecta.electrico">
+      </div>
+  </div>
+
+
+  <div class="row responsive-sm">
+      <div class="col col-table">
+          Paletero
+      </div>
+
+      <div class="col col-table">
+           <input type="number" ng-model="indirecta.paletero">
+      </div>
+  </div>
+
+
+  <div class="row responsive-sm">
+      <div class="col col-table">
+          Topógrafo
+      </div>
+
+      <div class="col col-table">
+           <input type="number" ng-model="indirecta.topografo">
+      </div>
+  </div>
+
+
+  <div class="row responsive-sm">
+      <div class="col col-table">
+          Alarife
+      </div>
+
+      <div class="col col-table">
+           <input type="number" ng-model="indirecta.alarife">
+      </div>
+  </div>
+
+
+  <div class="row responsive-sm">
+      <div class="col col-table">
+          Guardia
+      </div>
+
+      <div class="col col-table">
+           <input type="number" ng-model="indirecta.guardia">
+      </div>
+  </div>
+
+
+  <div class="row responsive-sm">
+      <div class="col col-table">
+          Personal Aseo
+      </div>
+
+      <div class="col col-table">
+           <input type="number" ng-model="indirecta.personal">
+      </div>
+  </div>
+
+
+  <div class="row responsive-sm">
+      <div class="col col-table">
+          Laboratorista
+      </div>
+
+      <div class="col col-table">
+           <input type="number" ng-model="indirecta.laboratorista">
+      </div>
+  </div>
+
+
+  <div class="row responsive-sm">
+      <div class="col col-table">
+          Chofer de servicio
+      </div>
+
+      <div class="col col-table">
+           <input type="number" ng-model="indirecta.chofer">
+      </div>
+  </div>
+
+
+  <div class="row responsive-sm">
+      <div class="col col-table">
+          Prevencionista
+      </div>
+
+      <div class="col col-table">
+           <input type="number" ng-model="indirecta.prevencionista">
+      </div>
+  </div>
+
+
+  <div class="row responsive-sm">
+      <div class="col col-table">
+          Jefe de terreno
+      </div>
+
+      <div class="col col-table">
+           <input type="number" ng-model="indirecta.jefe_terreno">
+      </div>
+  </div>
+
+
+
+  <div class="row responsive-sm">
+        <div class="col col-table">Personal Subcontrato</div>
+        <div class="col col-table"></div>
+  </div>
+
+
+
+  <div class="row responsive-sm">
+      <div class="col col-table">
+          Edeletric
+      </div>
+
+      <div class="col col-table">
+           <input type="number" ng-model="indirecta.edeletric">
+      </div>
+  </div>
+
+
+
+  <div class="row responsive-sm">
+      <div class="col col-table">
+          Guias Chile
+      </div>
+
+      <div class="col col-table">
+           <input type="number" ng-model="indirecta.guias_chile">
+      </div>
+  </div>
+
+
+  <div class="row responsive-sm">
+      <div class="col col-table">
+          Idiem
+      </div>
+
+      <div class="col col-table">
+           <input type="number" ng-model="indirecta.idiem">
+      </div>
+  </div>
+
+
+  <div class="row responsive-sm">
+      <div class="col col-table">
+          Carrera
+      </div>
+
+      <div class="col col-table">
+           <input type="number" ng-model="indirecta.carrera">
+      </div>
+  </div>
+
+
+  <div class="row responsive-sm">
+      <div class="col col-table">
+          MCS
+      </div>
+
+      <div class="col col-table">
+           <input type="number" ng-model="indirecta.mcs1">
+      </div>
+  </div>
+
+
+  <div class="row responsive-sm">
+      <div class="col col-table">
+          MCS
+      </div>
+
+      <div class="col col-table">
+           <input type="number" ng-model="indirecta.mcs2">
+      </div>
+  </div>
+
+
+
+
+  <div class="row responsive-sm">
+      <div class="col col-table">
+            Total
+      </div>
+
+      <div class="col col-table">
+           {{total_indirecta}}
+      </div>
+  </div>
+
+
+
+
+
+
+  <div class="row responsive-sm">
+        <div class="col col-table">M.O Directa</div>
+        <div class="col col-table">Pique</div>
+  </div>
+
+
+  <div class="row responsive-sm">
+        <div class="col col-table">Personal OHL</div>
+        <div class="col col-table">Cantidad</div>
+  </div>
+
+
+  <div class="row responsive-sm">
+      <div class="col col-table">
+          Capataz
+      </div>
+
+      <div class="col col-table">
+           <input type="number" ng-model="directa.capataz">
+      </div>
+  </div>
+
+  <div class="row responsive-sm">
+      <div class="col col-table">
+          Jefe de patio
+      </div>
+
+      <div class="col col-table">
+           <input type="number" ng-model="directa.jefe_patio">
+      </div>
+  </div>
+
+  <div class="row responsive-sm">
+      <div class="col col-table">
+          Minero
+      </div>
+
+      <div class="col col-table">
+           <input type="number" ng-model="directa.minero">
+      </div>
+  </div>
+
+
+
+  <div class="row responsive-sm">
+      <div class="col col-table">
+          Ayudantes
+      </div>
+
+      <div class="col col-table">
+           <input type="number" ng-model="directa.ayudantes">
+      </div>
+  </div>
+
+
+  <div class="row responsive-sm">
+      <div class="col col-table">
+          Enfierradores
+      </div>
+
+      <div class="col col-table">
+           <input type="number" ng-model="directa.enfierradores">
+      </div>
+  </div>
+
+
+  <div class="row responsive-sm">
+      <div class="col col-table">
+          Carpinteros
+      </div>
+
+      <div class="col col-table">
+           <input type="number" ng-model="directa.carpinteros">
+      </div>
+  </div>
+
+
+  <div class="row responsive-sm">
+      <div class="col col-table">
+          Pitonero
+      </div>
+
+      <div class="col col-table">
+           <input type="number" ng-model="directa.pitonero">
+      </div>
+  </div>
+
+  <div class="row responsive-sm">
+      <div class="col col-table">
+          Bombero
+      </div>
+
+      <div class="col col-table">
+           <input type="number" ng-model="directa.bombero">
+      </div>
+  </div>
+
+
+  <div class="row responsive-sm">
+      <div class="col col-table">
+          Operadores
+      </div>
+
+      <div class="col col-table">
+           <input type="number" ng-model="directa.operadores">
+      </div>
+  </div>
+
+
+  <div class="row responsive-sm">
+      <div class="col col-table">
+          Rigger
+      </div>
+
+      <div class="col col-table">
+           <input type="number" ng-model="directa.rigger">
+      </div>
+  </div>
+
+
+  <div class="row responsive-sm">
+        <div class="col col-table">Personal Subcontrato</div>
+        <div class="col col-table"></div>
+  </div>
+
+
+  <div class="row responsive-sm">
+      <div class="col col-table">
+          Terratest
+      </div>
+
+      <div class="col col-table">
+           <input type="number" ng-model="directa.terratest">
+      </div>
+  </div>
+
+
+
+  <div class="row responsive-sm">
+      <div class="col col-table">
+          Multiservice
+      </div>
+
+      <div class="col col-table">
+           <input type="number" ng-model="directa.multiservice">
+      </div>
+  </div>
+
+
+
+  <div class="row responsive-sm">
+      <div class="col col-table">
+          Geoinyecta
+      </div>
+
+      <div class="col col-table">
+           <input type="number" ng-model="directa.geoinyecta">
+      </div>
+  </div>
+
+
+
+
+  <div class="row responsive-sm">
+      <div class="col col-table">
+          Total
+      </div>
+
+      <div class="col col-table">
+            {{total_directa}}
+      </div>
+  </div>
+
+
+
+</div>

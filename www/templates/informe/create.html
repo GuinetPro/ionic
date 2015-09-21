@@ -1,0 +1,238 @@
+<ion-view view-title="Crear Informe">
+
+  <!--Tab superior -->
+
+
+  <ion-content>
+     <div class="row">
+          <div class="col col-33 col-offset-33">
+            <button class="button button-balanced" ng-click="guardarInforme()">Guardar Informe</button>
+           </div>
+     </div>
+
+     <ion-list class="has-header">
+
+         <!-- Zona de bitacora -->
+          <ion-item class="item-stable" ng-click="toggleGroup(1)" ng-class="active">
+              <i class="icon" ng-class="isGroupShown(1) ? 'ion-minus' : 'ion-plus'"></i>&nbsp;Bitacora
+          </ion-item>
+          <ion-item class="item-accordion" ng-show="isGroupShown(1)">
+                <div ng-include="'templates/informe/partials/_bitacora.html'"></div>
+          </ion-item>
+          <!-- Fin  Zona de bitacora -->
+
+         <!-- Zona galeria acceso-->
+          <ion-item class="item-stable" ng-click="toggleGroup(2)" ng-class="active">
+              <i class="icon" ng-class="isGroupShown(2) ? 'ion-minus' : 'ion-plus'"></i>&nbsp;Galeria Acceso
+          </ion-item>
+          <ion-item class="item-accordion" ng-show="isGroupShown(2)">
+                <div ng-include="'templates/informe/partials/_galeria_acceso.html'"></div>
+          </ion-item>
+            <!-- Fin  galeria acceso-->
+
+
+
+          <ion-item class="item-stable" ng-click="toggleGroup(3)" ng-class="active">
+              <i class="icon" ng-class="isGroupShown(3) ? 'ion-minus' : 'ion-plus'"></i>&nbsp;Tunel Interestación Oriente
+            </ion-item>
+          <ion-item class="item-accordion" ng-show="isGroupShown(3)">
+            <div ng-include="'templates/informe/partials/_tunel_int_oriente.html'"></div>
+          </ion-item>
+
+
+
+        <ion-item class="item-stable" ng-click="toggleGroup(4)" ng-class="active">
+              <i class="icon" ng-class="isGroupShown(4) ? 'ion-minus' : 'ion-plus'"></i>&nbsp; Tunel Interestación Poniente
+          </ion-item>
+          <ion-item class="item-accordion" ng-show="isGroupShown(4)">
+            <div ng-include="'templates/informe/partials/_tunel_int_poniente.html'"></div>
+          </ion-item>
+
+
+
+          <ion-item class="item-stable" ng-click="toggleGroup(5)" ng-class="active">
+              <i class="icon" ng-class="isGroupShown(5) ? 'ion-minus' : 'ion-plus'"></i>
+            &nbsp;
+
+            Tunel Estación Oriente
+          </ion-item>
+          <ion-item class="item-accordion" ng-show="isGroupShown(5)">
+            <div ng-include="'templates/informe/partials/_tunel_est_oriente.html'"></div>
+          </ion-item>
+
+
+
+          <ion-item class="item-stable" ng-click="toggleGroup(6)" ng-class="active">
+              <i class="icon" ng-class="isGroupShown(6) ? 'ion-minus' : 'ion-plus'"></i>
+            &nbsp;
+            Tunel Estación Poniente
+          </ion-item>
+          <ion-item class="item-accordion" ng-show="isGroupShown(6)">
+
+            <div ng-include="'templates/informe/partials/_tunel_est_poniente.html'"></div>
+
+          </ion-item>
+
+
+
+
+          <ion-item class="item-stable" ng-click="toggleGroup(7)" ng-class="active">
+              <i class="icon" ng-class="isGroupShown(7) ? 'ion-minus' : 'ion-plus'"></i>
+            &nbsp;
+            Personal de Obra
+          </ion-item>
+          <ion-item class="item-accordion" ng-show="isGroupShown(7)">
+
+               <div ng-include="'templates/informe/partials/_personal_obra.html'"></div>
+
+          </ion-item>
+
+
+          <ion-item class="item-stable" ng-click="toggleGroup(8)" ng-class="active">
+              <i class="icon" ng-class="isGroupShown(8) ? 'ion-minus' : 'ion-plus'"></i>
+            &nbsp;
+                Maquinarias y Equipos
+          </ion-item>
+          <ion-item class="item-accordion" ng-show="isGroupShown(8)">
+
+               <div ng-include="'templates/informe/partials/_maquinarias.html'"></div>
+
+          </ion-item>
+
+
+
+          <ion-item class="item-stable" ng-click="toggleGroup(9)" ng-class="active">
+              <i class="icon" ng-class="isGroupShown(9) ? 'ion-minus' : 'ion-plus'"></i>
+            &nbsp;
+            Hormigon
+
+          </ion-item>
+          <ion-item class="item-accordion" ng-show="isGroupShown(9)">
+
+               <div ng-include="'templates/informe/partials/_hormigon.html'"></div>
+
+          </ion-item>
+
+
+
+          <ion-item class="item-stable" ng-click="toggleGroup(10)" ng-class="active">
+              <i class="icon" ng-class="isGroupShown(10) ? 'ion-minus' : 'ion-plus'"></i>
+            &nbsp;
+            Marina
+
+          </ion-item>
+          <ion-item class="item-accordion" ng-show="isGroupShown(10)">
+
+               <div ng-include="'templates/informe/partials/_marina.html'"></div>
+
+          </ion-item>
+
+
+
+
+          <ion-item class="item-stable" ng-click="toggleGroup(11)" ng-class="active">
+              <i class="icon" ng-class="isGroupShown(11) ? 'ion-minus' : 'ion-plus'"></i>
+            &nbsp;
+                Pernos
+
+          </ion-item>
+          <ion-item class="item-accordion" ng-show="isGroupShown(11)">
+
+               <div ng-include="'templates/informe/partials/_pernos.html'"></div>
+
+          </ion-item>
+
+
+
+          <ion-item class="item-stable" ng-click="toggleGroup(12)" ng-class="active">
+              <i class="icon" ng-class="isGroupShown(12) ? 'ion-minus' : 'ion-plus'"></i>
+            &nbsp;
+
+                Pique
+
+          </ion-item>
+          <ion-item class="item-accordion" ng-show="isGroupShown(12)">
+
+               <div ng-include="'templates/informe/partials/_pique.html'"></div>
+
+          </ion-item>
+
+
+
+          <ion-item class="item-stable" ng-click="toggleGroup(13)" ng-class="active">
+              <i class="icon" ng-class="isGroupShown(13) ? 'ion-minus' : 'ion-plus'"></i>
+            &nbsp;
+                Galeria de Ventilacion
+          </ion-item>
+          <ion-item class="item-accordion" ng-show="isGroupShown(13)">
+
+              <div ng-include="'templates/informe/partials/_galeria_ventilacion.html'"></div>
+
+          </ion-item>
+
+
+
+          <ion-item class="item-stable" ng-click="toggleGroup(14)" ng-class="active">
+              <i class="icon" ng-class="isGroupShown(14) ? 'ion-minus' : 'ion-plus'"></i>
+            &nbsp;
+                Galeria Secundaria
+
+          </ion-item>
+          <ion-item class="item-accordion" ng-show="isGroupShown(14)">
+
+              <div ng-include="'templates/informe/partials/_galeria_secundaria.html'"></div>
+
+          </ion-item>
+
+          <ion-item class="item-stable" ng-click="toggleGroup(17)" ng-class="active">
+              <i class="icon" ng-class="isGroupShown(17) ? 'ion-minus' : 'ion-plus'"></i>
+            &nbsp;
+                Galeria Terciaria
+
+          </ion-item>
+          <ion-item class="item-accordion" ng-show="isGroupShown(17)">
+
+              <div ng-include="'templates/informe/partials/_galeria_terciaria.html'"></div>
+
+          </ion-item>
+
+          <ion-item class="item-stable" ng-click="toggleGroup(15)" ng-class="active">
+              <i class="icon" ng-class="isGroupShown(15) ? 'ion-minus' : 'ion-plus'"></i>
+            &nbsp;
+                Imagen
+          </ion-item>
+          <ion-item class="item-accordion" ng-show="isGroupShown(15)">
+              <div ng-include="'templates/informe/partials/_imagen.html'"></div>
+          </ion-item>
+
+          <ion-item class="item-stable" ng-click="toggleGroup(18)" ng-class="active">
+              <i class="icon" ng-class="isGroupShown(18) ? 'ion-minus' : 'ion-plus'"></i>
+            &nbsp;
+                Estación de bombeo
+          </ion-item>
+          <ion-item class="item-accordion" ng-show="isGroupShown(18)">
+
+              <div ng-include="'templates/informe/partials/_estacion_bombeo.html'"></div>
+
+          </ion-item>
+
+
+          <ion-item class="item-stable" ng-click="toggleGroup(16)" ng-class="active">
+              <i class="icon" ng-class="isGroupShown(16) ? 'ion-minus' : 'ion-plus'"></i>
+            &nbsp;
+                Nichos Sat
+          </ion-item>
+          <ion-item class="item-accordion" ng-show="isGroupShown(16)">
+
+              <div ng-include="'templates/informe/partials/_nichos_set.html'"></div>
+
+          </ion-item>
+
+
+
+
+      </ion-list>
+
+
+
+</ion-view>

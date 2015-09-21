@@ -1,0 +1,14 @@
+<ion-view view-title="Proyectos">
+  <ion-content>
+    <ul class="flex-container">
+      <li class="flex-item"  ng-repeat="list in lista">
+            <div class="list card">
+                <div class="item item-body">
+                    <h2>{{list.name}}</h2>
+                    <img class="full-image" src="img/{{list.image}}" style="width:250px;height:200px">
+                </div>
+            </div>
+      </li>
+    </ul>
+  </ion-content>
+</ion-view>
