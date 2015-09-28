@@ -1,7 +1,14 @@
-metro.factory('Informe', function($rootScope,$cordovaSQLite,$rootScope) {
+metro.factory('Informe', function( $rootScope, $cordovaSQLite, $rootScope, $q) {
 
 
   var informeFactory = {};
+
+  informeFactory.modelo = function(){
+
+    return {
+      informe_id:"",codigo:"",created_at:"",updated_at:"",estado:"",contratista:"",numero:"",tramo:"",hash:"",turno:"",proyecto:"",fecha:"",ito:""
+    }
+  };
 
   informeFactory.all = function () {
 
@@ -117,13 +124,20 @@ metro.factory('Informe', function($rootScope,$cordovaSQLite,$rootScope) {
 
   informeFactory.add = function(data){
 
-        var query = "INSERT INTO informe (codigo,created_at,updated_at,estado,contratista,numero,tramo,hash,turno,proyecto,fecha,ito) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+        var defered = $q.defer();
+        var promise = defered.promise;
+
+        var query = "INSERT INTO informe (codigo,created_at,updated_at,estado,ito) VALUES (?,?,?,?,?)";
 
         $cordovaSQLite.execute($rootScope.db, query, data ).then(function(res) {
-           return res.insertId;
+
+           defered.resolve(res.insertId);
+
         }, function (err) {
-           return  err;
+            defered.reject(err);
         });
+
+         return promise;
 
   }
 

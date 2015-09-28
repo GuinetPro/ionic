@@ -1,46 +1,99 @@
-metro.controller('InformeListCtrl', function($scope,Informe) {
+metro.controller('InformeListCtrl', function($scope,Informe, $timeout, $ionicLoading) {
 
+  // Setup the loader
+  $ionicLoading.show({
+    content: 'Loading',
+    animation: 'fade-in',
+    showBackdrop: true,
+    maxWidth: 200,
+    showDelay: 0
+  });
+
+
+  $timeout(function () {
+
+    $ionicLoading.hide();
     $scope.informes = Informe.all();
+  }, 1000);
+
+
 })
 
 
 
 
 
-metro.controller('InformeAddCtrl', function($scope,Piques,Actividades,Secuencia,SideDrift, $ionicActionSheet) {
+metro.controller('InformeAddCtrl', function($scope,Piques,Actividades,Secuencia,SideDrift, $ionicActionSheet, $timeout, $ionicLoading,Informe) {
 
   /* datos de los formualrios que seran guardados */
 
-  $scope.piques         = Piques.all();
-  $scope.actividades    = Actividades.all() ;
-  $scope.secuencias     = Secuencia.all();
-  $scope.side           = SideDrift.all() ;
+  $ionicLoading.show({
+    content: 'Loading',
+    animation: 'fade-in',
+    showBackdrop: true,
+    maxWidth: 200,
+    showDelay: 0
+  });
 
-  $scope.guardarInforme = function(){
 
-     $scope.$broadcast('crearInforme');
-  }
+  $timeout(function () {
 
-  $scope.toggleGroup = function(group) {
-    if ($scope.isGroupShown(group)) {
-      $scope.shownGroup = null;
-    } else {
-      $scope.shownGroup = group;
+    $ionicLoading.hide();
+
+    $scope.piques         = Piques.all();
+    $scope.actividades    = Actividades.all() ;
+    $scope.secuencias     = Secuencia.all();
+    $scope.side           = SideDrift.all() ;
+    $scope.informe        = Informe.modelo();
+
+    $scope.guardarInforme = function(){
+      var current_date  = moment().format('YYYY-MM-DD hh:mm:ss');
+
+
+      Informe.add(["",current_date,current_date,1,""]).then(function(data){
+
+          $scope.informe.informe_id = data;
+
+          $scope.$broadcast('crearInforme');
+      })
+
+      //console.log( $scope.informe );
+
+
     }
-  };
-  $scope.isGroupShown = function(group) {
-    return $scope.shownGroup === group;
-  };
 
+    $scope.toggleGroup = function(group) {
+      if ($scope.isGroupShown(group)) {
+        $scope.shownGroup = null;
+      } else {
+        $scope.shownGroup = group;
+      }
+    };
+    $scope.isGroupShown = function(group) {
+      return $scope.shownGroup === group;
+    };
+
+
+  }, 1000);
 
 })
 
 
 
-metro.controller('informeBitacoraCtrl', function($scope,Informe) {
+metro.controller('informeBitacoraCtrl', function($scope) {
 
 
     $scope.BitacoraZona   = [];
+    $scope.bitacora = {turno:"", contratista:"", tipo_pique:"", ito:"", fecha :"" };
+
+
+
+   $scope.$watchCollection('bitacora', function (newVal, oldVal) {
+
+       console.log(newVal);
+   });
+
+
 
     $scope.agregarZona = function(){
 
@@ -57,16 +110,16 @@ metro.controller('informeBitacoraCtrl', function($scope,Informe) {
     }
 
     $scope.$on('crearInforme', function(event, obj) {
-       console.log($scope.BitacoraZona);
+       console.log($scope.bitacora);
 
-       Informe.add();
+
 
     })
 
 })
 
 
-metro.controller('informeGaleriaAccesoCtrl', function($scope, $ionicActionSheet, $timeout) {
+metro.controller('informeGaleriaAccesoCtrl', function($scope, $ionicActionSheet, $timeout ) {
 
   $scope.actividad          = {};
   $scope.secuenciaGaleria   = [];
@@ -75,7 +128,7 @@ metro.controller('informeGaleriaAccesoCtrl', function($scope, $ionicActionSheet,
 
 
   $scope.$on('crearInforme', function(event, obj) {
-       console.log($scope.secuenciaGaleria);
+       console.log($scope.informe);
   })
 
   $scope.agregarSecuencia = function(){

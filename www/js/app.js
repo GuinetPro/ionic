@@ -46,27 +46,36 @@ metro.run(function($ionicPlatform, $cordovaSQLite,$rootScope, $state) {
 
 /* creamos las Rutas */
 
-metro.config(function($stateProvider, $urlRouterProvider ,$httpProvider) {
+metro.config(function($stateProvider, $urlRouterProvider ) {
 
 
   $stateProvider
     .state('app', {
       url: "/app",
-      abstract: true,
       templateUrl: "templates/menu.html",
-      controller: 'AppCtrl'
     })
 
-  .state('app.login', {
+  .state('login', {
       url: "/login",
+      templateUrl: "templates/login.html",
+      controller: 'loginCtrl'
+
+  })
+
+  .state('app.logout', {
+      url: "/logout",
       views: {
         'menuContent' :{
-          templateUrl: "templates/login.html",
-          controller: 'loginCtrl'
+          controller:  function($scope , $rootScope , $state){
+              $scope.loginData = {};
+              $scope.spinner = false;
+              window.localStorage.removeItem("idpersona");
+              window.localStorage.removeItem("password");
+              $state.go('login');
+          }
         }
       }
   })
-
 
   .state('app.informes', {
       url: "/informes",
@@ -112,9 +121,15 @@ metro.config(function($stateProvider, $urlRouterProvider ,$httpProvider) {
 
 
 
-  $urlRouterProvider.otherwise('/app/login');
+  $urlRouterProvider.otherwise('/login');
 })
 
-/* controller por defecto */
+/* controller por defecto
 
-metro.controller('AppCtrl', function($scope) {})
+metro.controller('MainCtrl', function($scope, $ionicSideMenuDelegate) {
+
+
+  $scope.toggleLeft = function() {
+    $ionicSideMenuDelegate.toggleLeft();
+  };
+})*/
